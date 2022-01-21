@@ -1,0 +1,37 @@
+pipeline
+{
+ agent any 
+ tools 
+			{ 
+			maven 'mvn-3.6.3' 
+			}
+    
+    environment {
+	  when {
+       expression {-Denvironment == 'Sandbox'}
+	   connAppclientId=credentials('connectedAppclientid')
+       connAppclientSecret=credentials('connectedAppclientsecret')
+       connAppgrantType=credentials('connAppgrantType')
+	   }
+	   when {
+       expression {-Denvironment == 'Design'}
+	   connAppclientId=credentials('connectedAppclientId-1')
+       connAppclientSecret=credentials('connectedAppclientsecret-1')
+       connAppgrantType=credentials('connAppgrantType')
+	   }
+	   }
+ stages{
+    stage('Build Application'){
+    steps{
+    bat 'mvn clean install -DskipTests'
+    }
+    }
+    
+  stage('Deploy Application in Mulesoft Cloudhub'){
+   steps{
+   bat 'mvn package -DskipTests deploy -DmuleDeploy -Denvironment=Sandbox -DconnectedAppClientId=${connAppclientId} -DconnectedAppClientSecret=${connAppclientSecret} -DconnectedAppGrantType=${connAppgrantType}'
+   
+   }
+  }
+}
+}
