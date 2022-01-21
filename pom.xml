@@ -42,9 +42,9 @@
                            <properties>
                          <key>value</key>
                       </properties>
-                     <connectedAppClientId>${connAppclientId}</connectedAppClientId>
-                    <connectedAppClientSecret>${connAppclientSecret}</connectedAppClientSecret>
-                     <connectedAppGrantType>${connAppgrantType}</connectedAppGrantType>
+                     <connectedAppClientId>${_connAppclientId}</connectedAppClientId>
+                    <connectedAppClientSecret>${_connAppclientSecret}</connectedAppClientSecret>
+                     <connectedAppGrantType>${_connAppgrantType}</connectedAppGrantType>
                  <objectStoreV2>true</objectStoreV2>
                  </cloudHubDeployment>
                 </configuration>
