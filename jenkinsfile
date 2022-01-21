@@ -1,17 +1,20 @@
 pipeline
 {
  agent any 
- _environment {
+ tools{
+	maven 'maven3.8.1'
+    }
+ environment {
        _environment_sandbox = 'Sandbox'
        _environment_design = 'Design'
 	  when {
-        expression {_environment._environment_sandbox==Sandbox}
+        expression {environment._environment_sandbox==Sandbox}
 	   _connAppclientId=credentials('connectedAppclientid')
        _connAppclientSecret=credentials('connectedAppclientsecret')
        _connAppgrantType=credentials('connAppgrantType')
 	   }
 	   when {
-       expression {_enviroment._environment_design==Design}
+       expression {enviroment._environment_design==Design}
        _connAppclientId=credentials('connectedAppclientId-1')
        _connAppclientSecret=credentials('connectedAppclientsecret-1')
        _connAppgrantType=credentials('connAppgrantType')
