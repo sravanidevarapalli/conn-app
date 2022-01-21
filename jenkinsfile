@@ -2,7 +2,7 @@ pipeline
 {
  agent any 
  tools{
-	maven 'maven3.5.2'
+	maven 'mvn 3.5.2'
     }
  environment {
        _environment_sandbox = 'Sandbox'
