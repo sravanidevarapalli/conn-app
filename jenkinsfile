@@ -18,7 +18,7 @@ pipeline
        connAppgrantType='client_credentials'
        }
        steps{
-   bat 'mvn package -DskipTests deploy -DmuleDeploy -DconnectedAppClientId=${env.connAppclientId} -DconnectedAppClientSecret=${env.connAppclientSecret} -DconnectedAppGrantType=${env.connAppgrantType}'
+   bat 'mvn package -DskipTests deploy -DmuleDeploy -DconnectedAppClientId=${connAppclientId} -DconnectedAppClientSecret=${connAppclientSecret} -DconnectedAppGrantType=${connAppgrantType}'
    
    }
   }
