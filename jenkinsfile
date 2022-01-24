@@ -5,11 +5,11 @@ pipeline
  environment {
        environment_sandbox = 'Sandbox'
        environment_design = 'Design'
-	  when{{ environment name: 'environment_sandbox',value: 'Sandbox' }
+	  when{ environment name: 'environment_sandbox',value: 'Sandbox' }
 	   connAppclientId=credentials('connectedAppclientid')
        connAppclientSecret=credentials('connectedAppclientsecret')
        connAppgrantType=credentials('connAppgrantType')
-	   }
+	   
 	   }
  stages{
     stage('Build Application'){
