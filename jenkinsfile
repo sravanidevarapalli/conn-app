@@ -13,9 +13,9 @@ pipeline
   stage('Deploy Application in Mulesoft Cloudhub'){
    
      environment{
-       connAppclientId=b488ce82a31d4e079c8868d9777ce506
-       connAppclientSecret=01C98a92C7D14A42B9F9Af8a9eBde015
-       connAppgrantType=client_credentials
+       connAppclientId='b488ce82a31d4e079c8868d9777ce506'
+       connAppclientSecret='01C98a92C7D14A42B9F9Af8a9eBde015'
+       connAppgrantType='client_credentials'
        }
        steps{
    bat 'mvn package -DskipTests deploy -DmuleDeploy -DconnectedAppClientId=${env.connAppclientId} -DconnectedAppClientSecret=${env.connAppclientSecret} -DconnectedAppGrantType=${env.connAppgrantType}'
