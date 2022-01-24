@@ -35,7 +35,7 @@
                                  <muleVersion>4.3.0</muleVersion>
                                <businessGroup>xyz</businessGroup>
                                  <applicationName>test-connectedApp</applicationName>
-                               <environment>${environment}</environment>
+                               <environment>Sandbox</environment>
                                 <region>us-east-2</region>
                                   <workers>1</workers>
                              <workerType>MICRO</workerType>
