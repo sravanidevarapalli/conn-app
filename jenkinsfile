@@ -6,7 +6,7 @@ pipeline
  stages{
     stage('Build Application'){
     steps{
-    bat 'mvn clean install -DskipTests'
+     sh 'mvn clean install -DskipTests'
     }
     }
     
@@ -17,7 +17,7 @@ pipeline
        connAppclientSecret='01C98a92C7D14A42B9F9Af8a9eBde015'
        connAppgrantType='client_credentials'
        
-   bat 'mvn package -DskipTests deploy -DmuleDeploy -DconnectedAppClientId=${connAppclientId} -DconnectedAppClientSecret=${connAppclientSecret} -DconnectedAppGrantType=${connAppgrantType}'
+   sh 'mvn package -DskipTests deploy -DmuleDeploy -DconnectedAppClientId=${connAppclientId} -DconnectedAppClientSecret=${connAppclientSecret} -DconnectedAppGrantType=${connAppgrantType}'
    }
    }
   }
