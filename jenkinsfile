@@ -1,24 +1,20 @@
 pipeline
 {
  agent any 
- 
- 
  stages{
     stage('Build Application'){
     steps{
      bat 'mvn clean install -DskipTests'
     }
     }
-    
-  stage('Deploy Application in Mulesoft Cloudhub'){
-   
-     environment{
-      connAppclientId=credentials('connectedAppclientid')
-       connAppclientSecret=credentials('connectedAppclientsecret')
-       connAppgrantType='client_credentials'
-       }
-       steps{
-   bat 'mvn package -DskipTests deploy -DmuleDeploy -DconnectedAppClientId=${connAppclientId} -DconnectedAppClientSecret=${connAppclientSecret} -DconnectedAppGrantType=${connAppgrantType}'
+    stage('Deploy Application in Mulesoft Cloudhub'){
+       environment{
+         connAppclientId=credentials('connectedAppclientid')
+         connAppclientSecret=credentials('connectedAppclientsecret')
+         connAppgrantType='client_credentials'
+      }
+    steps{
+      bat 'mvn package -DskipTests deploy -DmuleDeploy -DconnectedAppClientId=${connAppclientId} -DconnectedAppClientSecret=${connAppclientSecret} -DconnectedAppGrantType=${connAppgrantType}'
    
    }
   }
